@@ -28,7 +28,7 @@ export default function App() {
                 <Links />
             </head>
             <body>
-                <main className="bg-[#282a36] h-screen">
+                <main className="bg-[#282a36] h-screen px-4">
                     <nav>asjkjkkjjkkjdf</nav>
                     <Outlet />
                 </main>

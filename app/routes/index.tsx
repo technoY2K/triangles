@@ -26,13 +26,15 @@ const Sphere = (props: ShapeProps) => {
 
 export default function Index() {
     return (
-        <div className="bg-[#44475a]">
-            <Canvas>
-                <ambientLight />
-                <pointLight position={[10, 10, 10]} />
-                <Box position={[-1, 0.2, 2]} meshColor="red" />
-                <Sphere position={[2, 1, 0]} meshColor="blue" />
-            </Canvas>
-        </div>
+        <section className="h-screen flex flex-col justify-center">
+            <div className="bg-[#44475a] w-full">
+                <Canvas>
+                    <ambientLight />
+                    <pointLight position={[10, 10, 10]} />
+                    <Box position={[-1, 0.2, 2]} meshColor="red" />
+                    <Sphere position={[2, 1, 0]} meshColor="blue" />
+                </Canvas>
+            </div>
+        </section>
     );
 }
