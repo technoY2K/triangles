@@ -28,7 +28,10 @@ export default function App() {
                 <Links />
             </head>
             <body>
-                <Outlet />
+                <main className="bg-[#282a36] h-screen">
+                    <nav>asjkjkkjjkkjdf</nav>
+                    <Outlet />
+                </main>
                 <ScrollRestoration />
                 <Scripts />
                 <LiveReload />
