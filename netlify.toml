@@ -3,6 +3,7 @@
   publish = "public"
 
 [dev]
+  autoLaunch = false
   command = "remix watch"
   port = 3000
 
