@@ -29,8 +29,8 @@ export default function App() {
                 <Meta />
                 <Links />
             </head>
-            <body>
-                <main className="bg-[#282a36] px-5">
+            <body className="bg-[#282a36]">
+                <main className="px-8">
                     <Navbar />
                     <Outlet />
                 </main>
