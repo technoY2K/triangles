@@ -1,4 +1,4 @@
-import { type MeshProps, Canvas, useFrame } from "@react-three/fiber";
+import { type MeshProps, Canvas } from "@react-three/fiber";
 
 type ShapeProps = MeshProps & {
     meshColor: string;
@@ -26,7 +26,7 @@ const Sphere = (props: ShapeProps) => {
 
 export default function Index() {
     return (
-        <section className="mt-8 h-screens">
+        <section className="h-[91vh]">
             <div className="bg-[#44475a] h-5/6">
                 <Canvas>
                     <ambientLight />

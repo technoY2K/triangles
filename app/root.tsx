@@ -32,7 +32,9 @@ export default function App() {
             <body className="bg-[#282a36]">
                 <main className="px-8">
                     <Navbar />
-                    <Outlet />
+                    <div className="mt-8">
+                        <Outlet />
+                    </div>
                 </main>
                 <ScrollRestoration />
                 <LiveReload />
