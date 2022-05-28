@@ -16,7 +16,7 @@ export const meta: MetaFunction = () => ({
     viewport: "width=device-width,initial-scale=1",
 });
 
-import mainCSS from "~/tailwind.css";
+import mainCSS from "./tailwind.css";
 
 export const links: LinksFunction = () => {
     return [{ rel: "stylesheet", href: mainCSS }];
@@ -35,8 +35,8 @@ export default function App() {
                     <Outlet />
                 </main>
                 <ScrollRestoration />
-                <Scripts />
                 <LiveReload />
+                <Scripts />
             </body>
         </html>
     );
