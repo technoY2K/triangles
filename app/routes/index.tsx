@@ -26,8 +26,8 @@ const Sphere = (props: ShapeProps) => {
 
 export default function Index() {
     return (
-        <section className="h-screen flex flex-col justify-center">
-            <div className="bg-[#44475a] w-full">
+        <section className="h-screen w-full flex flex-col justify-center">
+            <div className="bg-[#44475a] w-full h-5/6">
                 <Canvas>
                     <ambientLight />
                     <pointLight position={[10, 10, 10]} />

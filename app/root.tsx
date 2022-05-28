@@ -8,6 +8,8 @@ import {
     ScrollRestoration,
 } from "@remix-run/react";
 
+import Navbar from "./Navbar";
+
 export const meta: MetaFunction = () => ({
     charset: "utf-8",
     title: "technoY2K",
@@ -28,8 +30,8 @@ export default function App() {
                 <Links />
             </head>
             <body>
-                <main className="bg-[#282a36] h-screen px-4">
-                    <nav>asjkjkkjjkkjdf</nav>
+                <main className="bg-[#282a36] px-5">
+                    <Navbar />
                     <Outlet />
                 </main>
                 <ScrollRestoration />
