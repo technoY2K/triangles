@@ -1,7 +1,12 @@
 export default function About() {
     return (
-        <div className="container mx-auto">
-            <iframe className="w-full aspect-video" src="/resume.pdf" />
+        <div>
+            <iframe
+                src="/resume.pdf"
+                typeof="application/pdf#view=FitH"
+                className="inset-0 w-full h-[91vh]"
+                frameBorder="0"
+            />
         </div>
     );
 }
