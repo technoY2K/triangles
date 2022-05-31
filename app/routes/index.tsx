@@ -1,4 +1,5 @@
 import { type MeshProps, Canvas } from "@react-three/fiber";
+import provider from "~/web3/provider";
 
 type ShapeProps = MeshProps & {
     meshColor: string;
