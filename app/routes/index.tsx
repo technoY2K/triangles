@@ -1,5 +1,15 @@
+import { LoaderFunction, json } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 import { type MeshProps, Canvas } from "@react-three/fiber";
 import provider from "~/web3/provider";
+import { type Block } from "@ethersproject/abstract-provider";
+
+export const loader: LoaderFunction = async () => {
+    const latestBlockNumber = await provider.getBlockNumber();
+    const block = await provider.getBlock(latestBlockNumber);
+
+    return json(block);
+};
 
 type ShapeProps = MeshProps & {
     meshColor: string;
@@ -26,6 +36,10 @@ const Sphere = (props: ShapeProps) => {
 };
 
 export default function Index() {
+    const block = useLoaderData<Block>();
+
+    console.log(block?.number);
+
     return (
         <section className="h-[91vh]">
             <div className="bg-[#44475a] h-5/6">
@@ -38,4 +52,8 @@ export default function Index() {
             </div>
         </section>
     );
+}
+
+export function ErrorBoundary({ error }: { error: Error }) {
+    return <div className="text-white text-3xl">Oops an error has occured</div>;
 }
