@@ -1,6 +1,7 @@
+import { useRef } from "react";
 import { LoaderFunction, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { type MeshProps, Canvas } from "@react-three/fiber";
+import { type MeshProps, Canvas, useFrame } from "@react-three/fiber";
 import provider from "~/web3/provider";
 import { type Block } from "@ethersproject/abstract-provider";
 
@@ -16,21 +17,18 @@ type ShapeProps = MeshProps & {
 };
 
 const Box = (props: ShapeProps) => {
+    const boxMesh = useRef<JSX.IntrinsicElements["mesh"]>();
+    useFrame(({ clock }) => {
+        if (boxMesh.current) {
+            boxMesh.current.rotation.y = clock.elapsedTime * 0.3;
+        }
+    });
+
     const { meshColor, ...p } = props;
     return (
-        <mesh {...p} scale={1.5}>
+        <mesh ref={boxMesh} {...p} scale={1.5}>
             <boxGeometry args={[1, 1, 1]} />
             <meshStandardMaterial color={meshColor} />
-        </mesh>
-    );
-};
-
-const Sphere = (props: ShapeProps) => {
-    const { meshColor, ...p } = props;
-    return (
-        <mesh {...p} scale={1.5}>
-            <sphereGeometry args={[1, 8, 8]} />
-            <meshPhongMaterial color={meshColor} shininess={150} />
         </mesh>
     );
 };
@@ -38,16 +36,13 @@ const Sphere = (props: ShapeProps) => {
 export default function Index() {
     const block = useLoaderData<Block>();
 
-    console.log(block?.number);
-
     return (
         <section className="h-[91vh]">
             <div className="bg-[#44475a] h-5/6">
                 <Canvas>
                     <ambientLight />
                     <pointLight position={[10, 10, 10]} />
-                    <Box position={[-1, 0.2, 2]} meshColor="red" />
-                    <Sphere position={[2, 1, 0]} meshColor="blue" />
+                    <Box position={[0, 0.2, 2]} meshColor="red" />
                 </Canvas>
             </div>
         </section>
