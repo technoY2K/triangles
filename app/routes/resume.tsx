@@ -1,11 +1,10 @@
 export default function About() {
     return (
-        <div>
+        <div className="h-[91vh]">
             <iframe
-                src="/resume.pdf"
-                typeof="application/pdf#view=FitH"
-                className="inset-0 w-full h-[91vh]"
-                frameBorder="0"
+                src="/resume.pdf#view=fitH"
+                typeof="application/pdf"
+                className="w-full h-full"
             />
         </div>
     );
