@@ -1,6 +1,6 @@
 import { isMobile } from "react-device-detect";
 
-export default function About() {
+export default function Resume() {
     return isMobile ? (
         <div>
             <p className="text-center text-[#f1fa8c] text-3xl mt-16">
