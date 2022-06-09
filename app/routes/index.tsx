@@ -6,6 +6,8 @@ import provider from "~/web3/provider";
 import { type Block } from "@ethersproject/abstract-provider";
 import { utils } from "ethers";
 
+import Scene from "~/components/Metaverse/Scene";
+
 type LoaderData = {
     block: Block;
     gas: string;
@@ -65,11 +67,9 @@ export default function Index() {
                 )}
             </div>
             <div className="bg-[#44475a] h-2/3">
-                <Canvas>
-                    <ambientLight />
-                    <pointLight position={[10, 10, 10]} />
+                <Scene>
                     <Box position={[0, 0.2, 2]} meshColor="#bd93f9" />
-                </Canvas>
+                </Scene>
             </div>
         </section>
     );
