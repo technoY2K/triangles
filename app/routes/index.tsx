@@ -1,12 +1,11 @@
-import { useRef } from "react";
 import { LoaderFunction, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { type MeshProps, Canvas, useFrame } from "@react-three/fiber";
 import provider from "~/web3/provider";
 import { type Block } from "@ethersproject/abstract-provider";
 import { utils } from "ethers";
 
 import Scene from "~/components/Metaverse/Scene";
+import { Box } from "~/components/Metaverse/Shape";
 
 type LoaderData = {
     block: Block;
@@ -25,27 +24,6 @@ export const loader: LoaderFunction = async () => {
     };
 
     return json(data);
-};
-
-type ShapeProps = MeshProps & {
-    meshColor: string;
-};
-
-const Box = (props: ShapeProps) => {
-    const boxMesh = useRef<JSX.IntrinsicElements["mesh"]>();
-    useFrame(({ clock }) => {
-        if (boxMesh.current) {
-            boxMesh.current.rotation.y = clock.elapsedTime * 0.3;
-        }
-    });
-
-    const { meshColor, ...p } = props;
-    return (
-        <mesh ref={boxMesh} {...p} scale={1.5}>
-            <boxGeometry args={[1, 1, 1]} />
-            <meshStandardMaterial color={meshColor} />
-        </mesh>
-    );
 };
 
 export default function Index() {
