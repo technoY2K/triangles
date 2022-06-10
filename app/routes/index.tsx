@@ -2,7 +2,6 @@ import { LoaderFunction, json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import provider from "~/web3/provider";
 import { type Block } from "@ethersproject/abstract-provider";
-import { utils } from "ethers";
 
 import Scene from "~/components/Metaverse/Scene";
 import { Box } from "~/components/Metaverse/Shape";
@@ -15,8 +14,7 @@ type LoaderData = {
 export const loader: LoaderFunction = async () => {
     const latestBlockNumber = await provider.getBlockNumber();
     const block = await provider.getBlock(latestBlockNumber);
-    const rawGasPrice = await provider.getGasPrice();
-    const gas = utils.formatUnits(rawGasPrice, "gwei");
+    const gas = await provider.getGasPrice();
 
     const data: LoaderData = {
         block,

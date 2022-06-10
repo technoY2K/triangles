@@ -1,6 +1,5 @@
-import { ethers } from "ethers";
+import { ethers, utils } from "ethers";
 import { type Block } from "@ethersproject/abstract-provider";
-import { utils } from "ethers";
 
 type Provider<B> = {
     getBlockNumber: () => Promise<number>;
@@ -11,7 +10,7 @@ type Provider<B> = {
 const provider = new ethers.providers.JsonRpcProvider(process.env.INFURA);
 
 const p: Provider<Block> = {
-    getBlockNumber: provider.getBlockNumber,
+    getBlockNumber: () => provider.getBlockNumber(),
     getBlock: (n: number) => provider.getBlock(n),
     getGasPrice: async () => {
         const rawGasPrice = await provider.getGasPrice();
