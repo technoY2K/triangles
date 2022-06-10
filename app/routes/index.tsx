@@ -35,9 +35,7 @@ export default function Index() {
                         <p className="text-2xl text-[#f1fa8c] mb-4">
                             Ethereum Block Stats
                         </p>
-                        <p>{`Block Number: ${data.block.number.toLocaleString(
-                            "en-US"
-                        )}`}</p>
+                        <p>{`Block Number: ${data.block.number.toLocaleString()}`}</p>
                         <p>{`Gas Price (Gwei): ${data.gas}`}</p>
                     </div>
                 ) : (
